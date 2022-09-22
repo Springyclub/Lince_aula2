@@ -1,11 +1,8 @@
 import 'dart:math' as math;
-
 void main() {
-  for (int i=0; i<10;i++){
 
   final meioDeComunicacao = aleatorio();
   meioDeComunicacao.fazerLigacao('(47) 99876-5432');
-}
 }
 
 
@@ -21,47 +18,45 @@ MeioDeComunicacao  aleatorio() {
       meiosDeComunicacao.length,
     )];
 }
+
+
+
+
 class MeioDeComunicacao {
   fazerLigacao(String telefone) {
-    String numero = aleatorio().toString();
+    final numero = aleatorio().runtimeType;
+    String i = "21";
     switch (numero) {
-      case "Instance of 'Celular'":
+      case Celular:
         {
-          Celular().printar(numero);
-          Celular().printar(telefone);
-
+          Celular().printar(numero.toString(),telefone);
         }
         break;
-      case "Instance of 'Telefone'":
+      case Telefone:
         {
-          Telefone().printar(telefone);
-
-
+          Telefone().printar(numero.toString(),telefone);
         }
         break;
-
-      case "Instance of 'Orelhao'":
+      case Orelhao:
         {
-          Orelhao().printar(telefone);
-
-
+          Orelhao().printar(numero.toString(),telefone);
         }
         break;
     }
   }
 }
 class Orelhao extends MeioDeComunicacao{
-  printar(String numero,telefone) {
-    print("$t Ligando para $numero...");
+  printar(String numero, String telefone) {
+    print("$numero Ligando para $telefone...");
   }
 }
 class Telefone extends MeioDeComunicacao{
-  printar(String numero) {
-    print("[TELEFONE] Ligando para $numero...");
+  printar(String numero, String telefone, ) {
+    print("$numero Ligando para $telefone...");
   }
 }
 class Celular extends MeioDeComunicacao{
-  printar(String numero) {
-    print("[Celular] Ligando para $numero...");
+  printar(String numero, String telefone) {
+    print("$numero Ligando para $telefone...");
   }
 }
